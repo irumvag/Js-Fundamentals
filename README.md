@@ -7,4 +7,4 @@ pigIt('Hello world !');     ->  elloHay orldway !
 
 ### How to run code
 
-```node simplePigLatin.js
+``` node simplePigLatin.js
