@@ -34,5 +34,8 @@ pigIt('Hello world !');     ->  elloHay orldway !
 
 ### How to run code
 
-```node filename.js
+use Node.js:
+
+```bash
+node filename.js
 ```
