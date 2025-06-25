@@ -86,3 +86,9 @@ function isSolved(boad) {
 }
 console.log("tictac",isSolved([[0,0,1],[0,1,2],[2,1,0]]));
 // your code goes here
+console.log(Array.from("hello"));
+console.log([..."hello"]);
+const unique=new Set([1,2,3,4,4,6,6]);
+console.log(Array.from(unique));
+console.log(Array.from(unique,x=>x**2));
+console.log(Array.from({length:10},(_,z)=>z+1));
