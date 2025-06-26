@@ -92,3 +92,17 @@ const unique=new Set([1,2,3,4,4,6,6]);
 console.log(Array.from(unique));
 console.log(Array.from(unique,x=>x**2));
 console.log(Array.from({length:10},(_,z)=>z+1));
+const firstname=['Lucide','Gad','Tc'];
+console.log([...firstname]);
+let a;
+a=firstname;
+let obj={hello:12};
+let obj1=obj;
+
+console.log([...new Set([1,2,3,444,555,555,4])])
+console.log(obj1);
+let firstName = "";
+let lastName = "";
+let nickName = "SuperCoder";
+let result=firstName || lastName || nickName || "Anonymous";
+console.log(result); // SuperCoder
