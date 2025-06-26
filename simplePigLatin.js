@@ -1,3 +1,4 @@
 function pigIt(str,word=str.split(' ')){
-  return word.map((w)=>(w.length>=2)?(w.slice(1)+w.charAt(0)+"ay"):w).join(' ');
-  }
+  //return collected Kata
+  return word.map((w)=>(w.length>1)?(w.slice(1)+w.charAt(0)+"ay"):(['!','.',',','?'].includes(w)?w:w+'ay')).join(' ');
+}
