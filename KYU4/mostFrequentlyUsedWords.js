@@ -1,7 +1,25 @@
 function topThreeWords(text) {
-    let filtedText=text.split(' ').map(a=>a.split('').filter(b=>b>="A"&&'z'<=b).join().toLowerCase());
-    console.log(filtedText);
-    return [];
+    let textArr = text.replaceAll(',', '').
+    replaceAll('.', '').
+    replaceAll(':', '').
+    replaceAll(';', '').
+    replaceAll('\\', '').
+    replaceAll('#', '').
+    replaceAll('\n','').
+    toLowerCase().
+    split(' ').filter(a=>a!='');
+    console.log(textArr);
+    let word = {};
+
+    for(let w of textArr){
+        word[w] = (word[w] || 0) + 1;
+    }
+    console.log(word);
+    let sortedArr = Object.entries(word).sort((a,b) => b[1] - a[1]).slice(0, 3);
+    let target = [...sortedArr.map(a => a[0])];
+    console.log(target);
+    return target;
+
 }
 topThreeWords("hello hello hello");
 // describe("Tests Suite", () => {
@@ -15,7 +33,7 @@ topThreeWords("hello hello hello");
 //   }
 
 //   it("sample tests", () => {
-//     doTest("a a a  b  c c  d d d d  e e e e e", ['e','d','a'])
+topThreeWords("a a a  b  c c  d d d d  e e e e e", ['e','d','a']);
 //     doTest("a a a c b b", ['a','b','c'])
 //     doTest("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e", ['e','ddd','aa'])
 //     doTest("  //wont won't won't ", ["won't", "wont"])
