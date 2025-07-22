@@ -1,38 +1,42 @@
 function solution(text, markers) {
-    //if(markers.length==0) return text;
-    let rem=true;
-    return text.split('\n').map(a=>{
-        let end;
-        a.split('').map((b,i)=>{
-            if(markers.includes(b))
+    let result=[];
+    let start=true;
+    let words=text.split('\n');
+    for(let word of words)
+        {
+         let temp=[];
+         word.split('').map(a=>
             {
-                end=i;
+                if(markers.includes(a))
+                {
+                start=false; 
+                }
+                if(start) temp.push(a);
             }
-        });
-        return a.substring(0,end);
-    }).join('\n');
-    
+          );
+          result.push(temp.join(''));
+          start=true;
+        }
+    let res=result.join('\n').split('');
+    for(let j=res.length-1;j>=0;j--)
+        {
+        if(res[j]==' ')
+        {
+            res.pop();
+        }
+        else{
+            break;
+        }
+        } 
+    console.log(res);  
+    return res.join('');
 }
 var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
 // result should == "apples, pears\ngrapes\nbananas"
 console.log(result);
 
-// var res='';
-//     for(let i=0;markers.length;i++){
-//         for(let j=0;j<text.length;j++){
-//         if(markers[i]==text[j])
-//         {
-//             rem=false;
-//         }
-//         else{
-//             if(text[j]=='\\')
-//             {
-//                 rem=true;
-//             }
-//             if(rem){ 
-//                 res+=text[j];
-//             } 
-//         }
-//         }
-//     }
-//     return res;
+function solution(input, markers) {
+  return input.split('\n')
+    .map(str => markers.reduce((s, m) => s.split(m)[0], str).trimEnd())
+    .join('\n');
+}
