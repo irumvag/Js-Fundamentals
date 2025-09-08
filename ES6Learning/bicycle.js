@@ -26,3 +26,14 @@ myVehicle.honkHorn(); // beep beep
 const myBike = new Bicycle();
 myBike.honkHorn(); // honk honk
 
+let set = new Set();
+let obj = { name: "Alice" };
+set.add(obj);
+
+console.log(set.has(obj)); // true
+
+obj = null;  // remove reference
+console.log(set.size); // 1  (the object is still in memory!)
+console.log(set);
+
+
