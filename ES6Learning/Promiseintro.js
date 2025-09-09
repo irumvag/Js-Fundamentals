@@ -44,3 +44,12 @@ secondPromise.then((message) => {
 }).then((message) => {
     console.log(message); // Log the message from the third promise
 });
+
+
+new Promise((resolve,reject)=>
+    {
+        resolve(1);
+    })
+.then(result=>result*2)
+.then(result=>result*3)
+.then(result=>console.log(result));
