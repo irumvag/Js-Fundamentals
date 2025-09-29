@@ -26,8 +26,7 @@ function extractUserData(user={},array)
     // const {id,profile:{name,preferences:{theme}}}=user;
     // return {id:id,name:name,them:theme};
 
-
-    let output={};
+    let output={}, arr=[];
     for(let a of array){
         if(!a.includes('.')){
         if(user[a]){
@@ -35,9 +34,10 @@ function extractUserData(user={},array)
         }
         }
         else{
-
              let fields=a.split('.');
-             
+             if(typeof user[fields[0]]=='object'){
+              arr.push(extractUserData(user[fields[0]],fields.slice(1)));
+             }
             // let value=0;
             // for(let v of fields){
             //     value=value==0?user[v]:value[v];
@@ -48,6 +48,7 @@ function extractUserData(user={},array)
             
         }
     }
+    console.log(arr);
     return output;
 
 }
