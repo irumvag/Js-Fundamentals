@@ -1,15 +1,9 @@
 function findUniq(arr) {
-  let output=[];
-  for(const [i,v] of arr.entries())
-  {
-    for(const [j,h] of arr.entries())
-    {
-        if( i!=j && h.toLowerCase().split('').includes(v[0].toLowerCase()) ){
-          output.push(h)  
-        }
-    }
+  let temp=arr[0].toLowerCase();
+  for(let i of arr.slice(1)){
+    let low=i.toLowerCase();
+    if()
   }
-  console.log(output);
 }
 
 console.log(findUniq([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]) === 'BbBb');
