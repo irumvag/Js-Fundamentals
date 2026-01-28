@@ -10,5 +10,14 @@ for (let i = 0; i < 2; i++) {
 		}).then(() => {
 			console.log("Promise 2 ", i);
 		});
-	},3000)
+	})
 }
+
+function getPromiseState(promise){
+    const pending={};
+    return Promise.race([promise, pending])
+        .then(value=>(value===pending?'pending':'fulfilled'))
+        .catch(()=> "rejected");
+}
+const p1= new Promise(()=>{})
+getPromiseState(p1).then(state=>console.log("p1",state));
