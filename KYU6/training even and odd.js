@@ -1,10 +1,13 @@
 function evenOrOdd(n) {
-//   if(n%2===0) return 'Even';
-//   return 'Odd'
-  let result=n%2==0?'Even':'Odd';
-  evenOrOdd[n]=result;
-  return result
+  let res=n%2==0?'Even':'Odd';
+  evenOrOdd[n]=res;
+  return res;
 }
-for(let i=-10000;i<10000;i++){
-  evenOrOdd[i]=evenOrOdd(i);
+let handle={
+    get(target,prop){
+    console.log(evenOrOdd(prop));
+    return target[prop]
+  }
 }
+evenOrOdd=new Proxy(evenOrOdd,handle)
+
